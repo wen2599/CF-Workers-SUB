@@ -7,19 +7,19 @@ let ChatID =''; //可以为空，或者@userinfobot中获取，/start
 let TG = 0; //小白勿动， 开发者专用，1 为推送所有的访问信息，0 为不推送订阅转换后端访问信息与异常访问
 let FileName = 'CF-Workers-SUB';
 let SUBUpdateTime = 6; //自定义订阅更新时间，单位小时
-let total = 99;//PB
+let total = 99;//TB
 let timestamp = 4102329600000;//2099-12-31
 
 //节点链接 + 订阅链接
 let MainData = `
 vless://b7a392e2-4ef0-4496-90bc-1c37bb234904@cf.090227.xyz:443?encryption=none&security=tls&sni=edgetunnel-2z2.pages.dev&fp=random&type=ws&host=edgetunnel-2z2.pages.dev&path=%2F%3Fed%3D2048#%E5%8A%A0%E5%85%A5%E6%88%91%E7%9A%84%E9%A2%91%E9%81%93t.me%2FCMLiussss%E8%A7%A3%E9%94%81%E6%9B%B4%E5%A4%9A%E4%BC%98%E9%80%89%E8%8A%82%E7%82%B9
 https://sub.xf.free.hr/auto
-https://WARP.fxxk.dedyn.io/auto
 `
 
 let urls = [];
-let subconverter = "apiurl.v1.mk"; //在线订阅转换后端，目前使用肥羊的订阅转换功能。支持自建psub 可自行搭建https://github.com/bulianglin/psub
+let subconverter = "subapi-loadbalancing.pages.dev"; //在线订阅转换后端，目前使用CM的订阅转换功能。支持自建psub 可自行搭建https://github.com/bulianglin/psub
 let subconfig = "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_MultiCountry.ini"; //订阅配置文件
+let subProtocol = 'https';
 
 export default {
 	async fetch (request,env) {
@@ -32,6 +32,12 @@ export default {
 		ChatID = env.TGID || ChatID; 
 		TG =  env.TG || TG; 
 		subconverter = env.SUBAPI || subconverter;
+		if( subconverter.includes("http://") ){
+			subconverter = subconverter.split("//")[1];
+			subProtocol = 'http';
+		} else {
+			subconverter = subconverter.split("//")[1] || subconverter;
+		}
 		subconfig = env.SUBCONFIG || subconfig;
 		FileName = env.SUBNAME || FileName;
 		MainData = env.LINK || MainData;
@@ -43,8 +49,8 @@ export default {
 		const fakeToken = await MD5MD5(`${mytoken}${timeTemp}`);
 		//console.log(`${fakeUserID}\n${fakeHostName}`); // 打印fakeID
 
-		let UD = Math.floor(((timestamp - Date.now())/timestamp * 99 * 1099511627776 * 1024)/2);
-		total = total * 1099511627776 * 1024;
+		let UD = Math.floor(((timestamp - Date.now())/timestamp * total * 1099511627776 )/2);
+		total = total * 1099511627776 ;
 		let expire= Math.floor(timestamp / 1000) ;
 		SUBUpdateTime = env.SUBUPTIME || SUBUpdateTime;
 
@@ -84,6 +90,8 @@ export default {
 				订阅格式 = 'clash';
 			} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ( (url.searchParams.has('sb') || url.searchParams.has('singbox')) && !userAgent.includes('subconverter'))){
 				订阅格式 = 'singbox';
+			} else if (userAgent.includes('surge') || ( url.searchParams.has('surge') && !userAgent.includes('subconverter'))){
+				订阅格式 = 'surge';
 			}
 
 			let subconverterUrl ;
@@ -95,7 +103,7 @@ export default {
 	
 			const timeout = setTimeout(() => {
 				controller.abort(); // 取消所有请求
-			}, 1618); // 1.618秒后触发
+			}, 2000); // 2秒后触发
 	
 
 			let 追加UA = 'v2rayn';
@@ -103,6 +111,8 @@ export default {
 				追加UA = 'clash';
 			} else if(url.searchParams.has('singbox')){
 				追加UA = 'singbox';
+			} else if(url.searchParams.has('surge')){
+				追加UA = 'surge';
 			}
 			
 			try {
@@ -121,7 +131,7 @@ export default {
 								if (content.includes('dns') && content.includes('proxies') && content.includes('proxy-groups')) {
 									//console.log("clashsub: " + url);
 									订阅转换URL += "|" + url;
-								} else if  (content.includes('dns') && content.includes('outbounds') && content.includes('inbounds')){
+								} else if (content.includes('dns') && content.includes('outbounds') && content.includes('inbounds')){
 									//console.log("singboxsub: " + url);
 									订阅转换URL += "|" + url;
 								} else {
@@ -135,14 +145,14 @@ export default {
 						}
 					})
 				));	
-				//console.log(responses);
+			
 				for (const response of responses) {
-					if (response.status === 'fulfilled') {
-						const content = await response.value;
+					if (response.status === 'fulfilled' && response.value) {
+						const content = response.value;
 						req_data += base64Decode(content) + '\n';
 					}
 				}
-
+			
 			} catch (error) {
 				//console.error(error);
 			} finally {
@@ -162,7 +172,7 @@ export default {
 			
 			const base64Data = btoa(result);
 
-			if (订阅格式 == 'base64'){
+			if (订阅格式 == 'base64' || token == fakeToken){
 				return new Response(base64Data ,{
 					headers: { 
 						"content-type": "text/plain; charset=utf-8",
@@ -171,9 +181,11 @@ export default {
 					}
 				});
 			} else if (订阅格式 == 'clash'){
-				subconverterUrl = `https://${subconverter}/sub?target=clash&url=${encodeURIComponent(订阅转换URL)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
+				subconverterUrl = `${subProtocol}://${subconverter}/sub?target=clash&url=${encodeURIComponent(订阅转换URL)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
 			} else if (订阅格式 == 'singbox'){
-				subconverterUrl = `https://${subconverter}/sub?target=singbox&url=${encodeURIComponent(订阅转换URL)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
+				subconverterUrl = `${subProtocol}://${subconverter}/sub?target=singbox&url=${encodeURIComponent(订阅转换URL)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
+			} else if (订阅格式 == 'surge'){
+				subconverterUrl = `${subProtocol}://${subconverter}/sub?target=surge&url=${encodeURIComponent(订阅转换URL)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
 			}
 			console.log(订阅转换URL);
 			try {
