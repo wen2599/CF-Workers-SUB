@@ -21,7 +21,6 @@ vmess://eyAidiI6ICIyIiwgInBzIjogIlBMLUF0bWFuX1NwLl96X28uby4iLCAiYWRkIjogIjg1LjIz
 vmess://eyAidiI6ICIyIiwgInBzIjogIlBMLUF0bWFuX1NwLl96X28uby4iLCAiYWRkIjogInd3dy52aXNhLmNvbS50dyIsICJwb3J0IjogIjQ0MyIsICJpZCI6ICJiYzk3ZjY3NC1jNTc4LTQ5NDAtOTIzNC0wYTFkYTQ2MDQxYjkiLCAiYWlkIjogIjAiLCAic2N5IjogIm5vbmUiLCAibmV0IjogIndzIiwgInR5cGUiOiAibm9uZSIsICJob3N0IjogImJveC54eHNzLnVzLmtnIiwgInBhdGgiOiAiL3ZtZXNzP2VkPTIwNDgiLCAidGxzIjogInRscyIsICJzbmkiOiAiYm94Lnh4c3MudXMua2ciLCAiYWxwbiI6ICIiLCAiZnAiOiAiIn0K
 hysteria2://bc97f674-c578-4940-9234-0a1da46041b9@85.232.241.109:41773/?sni=www.bing.com&alpn=h3&insecure=1#PL-Atman_Sp._z_o.o.
 tuic://bc97f674-c578-4940-9234-0a1da46041b9:admin123@85.232.241.109:61231?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&allow_insecure=1#PL-Atman_Sp._z_o.o.
-https://sub.xf.free.hr/auto
 `
 
 let urls = [];
