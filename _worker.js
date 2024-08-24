@@ -17,10 +17,6 @@ let MainData = `
 hy2://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c@85.232.241.109:23838?insecure=1&sni=www.bing.com#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
 vless://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c@85.232.241.109:28502?security=reality&sni=www.ups.com&fp=chrome&pbk=SxBMcWxdxYBAh_IUSsiCDk6UHIf1NA1O8hUZ2hbRTFE&type=tcp&flow=xtls-rprx-vision&encryption=none#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
 tuic://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c:wenxiu1234@85.232.241.109:44067?congestion_control=bbr&alpn=h3&sni=www.bing.com&udp_relay_mode=native&allow_insecure=1#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
-vmess://eyAidiI6ICIyIiwgInBzIjogIlBMLUF0bWFuX1NwLl96X28uby4iLCAiYWRkIjogIjg1LjIzMi4yNDEuMTA5IiwgInBvcnQiOiAiNTkzMTUiLCAiaWQiOiAiYmM5N2Y2NzQtYzU3OC00OTQwLTkyMzQtMGExZGE0NjA0MWI5IiwgImFpZCI6ICIwIiwgInNjeSI6ICJub25lIiwgIm5ldCI6ICJ3cyIsICJ0eXBlIjogIm5vbmUiLCAiaG9zdCI6ICIiLCAicGF0aCI6ICIvdm1lc3M/ZWQ9MjA0OCIsICJ0bHMiOiAiIiwgInNuaSI6ICIiLCAiYWxwbiI6ICIiLCAiZnAiOiAiIn0K
-vmess://eyAidiI6ICIyIiwgInBzIjogIlBMLUF0bWFuX1NwLl96X28uby4iLCAiYWRkIjogInd3dy52aXNhLmNvbS50dyIsICJwb3J0IjogIjQ0MyIsICJpZCI6ICJiYzk3ZjY3NC1jNTc4LTQ5NDAtOTIzNC0wYTFkYTQ2MDQxYjkiLCAiYWlkIjogIjAiLCAic2N5IjogIm5vbmUiLCAibmV0IjogIndzIiwgInR5cGUiOiAibm9uZSIsICJob3N0IjogImJveC54eHNzLnVzLmtnIiwgInBhdGgiOiAiL3ZtZXNzP2VkPTIwNDgiLCAidGxzIjogInRscyIsICJzbmkiOiAiYm94Lnh4c3MudXMua2ciLCAiYWxwbiI6ICIiLCAiZnAiOiAiIn0K
-hysteria2://bc97f674-c578-4940-9234-0a1da46041b9@85.232.241.109:41773/?sni=www.bing.com&alpn=h3&insecure=1#PL-Atman_Sp._z_o.o.
-tuic://bc97f674-c578-4940-9234-0a1da46041b9:admin123@85.232.241.109:61231?sni=www.bing.com&congestion_control=bbr&udp_relay_mode=native&alpn=h3&allow_insecure=1#PL-Atman_Sp._z_o.o.
 `
 
 let urls = [];
