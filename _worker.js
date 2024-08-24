@@ -14,8 +14,8 @@ let cacheTTL = 24 ;//小时，缓存时长
 
 //节点链接 + 订阅链接
 let MainData = `
-vless://f525f8d3-3364-4045-94db-8169032dbda8@wenxiu778899.serv00.net:37162?security=&sni=wenxiu778899.serv00.net&allowInsecure=1&type=ws&path=/&host=wenxiu778899.serv00.net&encryption=none#serv00-vless
 vmess://eyJhZGQiOiJhbGVqYW5kcmFjYWljY2Vkby5jb20iLCJhaWQiOiIwIiwiaG9zdCI6ImJveC54eHNzLnVzLmtnIiwiaWQiOiIxNmMwZTJiYi0wZDZlLTRhZjgtOTgxMC04MjI1ZDJlMzFkZTUiLCJuZXQiOiJ3cyIsInBhdGgiOiIvc2VydjAwLXZtZXNzP2VkPTIwNDgiLCJwb3J0IjoiNDQzIiwicHMiOiJBcmdvLWswYmF5YS1WbWVzcyIsInNjeSI6Im5vbmUiLCJzbmkiOiJib3gueHhzcy51cy5rZyIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
+vless://f525f8d3-3364-4045-94db-8169032dbda8@wenxiu778899.serv00.net:37162?security=&sni=wenxiu778899.serv00.net&allowInsecure=1&type=ws&path=/&host=wenxiu778899.serv00.net&encryption=none#serv00-vless
 hy2://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c@85.232.241.109:23838?insecure=1&sni=www.bing.com#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
 vless://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c@85.232.241.109:28502?security=reality&sni=www.ups.com&fp=chrome&pbk=SxBMcWxdxYBAh_IUSsiCDk6UHIf1NA1O8hUZ2hbRTFE&type=tcp&flow=xtls-rprx-vision&encryption=none#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
 tuic://c2bb1bf4-2491-4b1e-8eb1-42a68df8486c:wenxiu1234@85.232.241.109:44067?congestion_control=bbr&alpn=h3&sni=www.bing.com&udp_relay_mode=native&allow_insecure=1#tg%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%EF%BC%9Ahttps://t.me/zzzjsjl
