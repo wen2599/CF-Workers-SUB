@@ -15,6 +15,7 @@ let cacheTTL = 24 ;//小时，缓存时长
 //节点链接 + 订阅链接
 let MainData = `
 https://chromenodes.marcol.top/
+https://gs.yyxx.us.kg/1a287512-8604-410a-b5c0-723926d2bac6
 `
 
 let urls = [];
