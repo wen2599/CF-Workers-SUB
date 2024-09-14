@@ -14,7 +14,7 @@ let cacheTTL = 24 ;//小时，缓存时长
 
 //节点链接 + 订阅链接
 let MainData = `
-https://chromenodes.marcol.top/
+vmess://eyJhZGQiOiIxMDQuMTkuNTEuMjMyIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiJpcDAwNi5mcmVlZ3JhZGVseS54eXoiLCJpZCI6IjI5ZWViYjYwLWIyN2ItNGE5ZC1iYmE1LTk0Nzc2M2Q5MjA1ZSIsIm5ldCI6IndzIiwicGF0aCI6ImdpdGh1Yi5jb20vQWx2aW45OTk5IiwicG9ydCI6IjIwODYiLCJwcyI6IuiKgueCuTExMiIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiIiwidiI6IjIifQ==
 https://gs.yyxx.us.kg/1a287512-8604-410a-b5c0-723926d2bac6
 `
 
